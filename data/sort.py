@@ -12,10 +12,11 @@ def get(it):
         return None
 
 while filename := get(iglob(PATTERN)):
-    clazz, name = filename.split("-", 1)
+    clazz = filename.split("-", 1)[0]
     makedirs(clazz)
 
     for file in iglob(f"{clazz}-{PATTERN}"):
-        new = path.join(clazz, "/", name)
+        name = file.split("-", 1)[1]
+        new = path.join(f"{clazz}/", name)
         move(file, new)
         print(f"{file} -> {str(new)}")
