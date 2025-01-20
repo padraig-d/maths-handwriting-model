@@ -1,19 +1,26 @@
-# Basic Handwritten Math Symbols Dataset
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+## Getting Started
+### Python
+PyTorch supports Python 3.9 - 3.12.
+Check that your version falls into that range with `python -V`. If it doesn't, I recommend you install `python3.12` and create a virtual environment.
+```sh
+sudo apt install python3.12 -y # your distribution's package manager might not be apt
+python3.12 -m venv .venv # create a virtual environment and put it in the hidden folder .venv
+```
+In order to use that virtual environment, you need to run the activation script for every new shell session.
+This is because the script temporarily changes your version of Python.
+```sh
+source .venv/bin/activate
+```
+After this, you can continue.
 
+### Dependencies
+Standard dependencies are in `requirements.txt`.
+```sh
+pip install -r requirements.txt
+```
 
-## What?
-This dataset contains 27000 images of 18 handwritten mathematical symbols (1500 images per symbol). The symbols are: `0,1,2,3,4,5,6,7,8,9,*,-,+,/,w,x,y,z`.
+PyTorch is not multiplatform, so you'll need to select the correct version for your hardware [here](https://pytorch.org/get-started/locally/). Follow the instructions and run the command given. If you have no GPU, pick the CPU option.
 
-You can find the symbols in the `symbols` directory. Each file has the following format: `<symbol-name>-<id>.png`, e.g. `slash-1484.png`.
-
-![Symbols](./assets/symbols.gif)
-
-## Why?
-The data was initially gathered for use in the [camculator](https://github.com/wblachowski/camculator) project. We couldn't find a dataset that would suit our needs, which were digits (MNIST covers this case), some letters (Extended MNIST is fine) and symbols like `/` and `+` (we couldn't find any dataset of high quality and quantity for this case).
-
-## How?
-It was gathered by having a couple of people (hence the writing style is not very diverse - sorry about that!) fill numerous sheets of paper with handwritten symbols. We later took the photos of the sheets and put the pictures in a simple processing pipeline which extracted digits automagically, cropping them and scaling to the desired resolution. We later filtered out any trash outputs.
-
-## May I?
-Feel free to use this dataset, it's licensed under the MIT License.
+## Data
+Dataset consists of 27,000 images of the symbols `0,1,2,3,4,5,6,7,8,9,*,-,+,/,w,x,y,z` (1,500 each).
+It has yet to be sorted correctly.
