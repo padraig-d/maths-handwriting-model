@@ -1,6 +1,19 @@
 ## Getting Started
-Virtual environment is not necessary since we will be using the latest versions.
-Standard dependencies in `requirements.txt`
+### Python
+PyTorch supports Python 3.9 - 3.12.
+Check that your version falls into that range with `python -V`. If it doesn't, I recommend you install `python3.12` and create a virtual environment.
+```sh
+sudo apt install python3.12 -y # your distribution's package manager might not be apt
+python3.12 -m venv .venv # create a virtual environment and put it in the hidden folder .venv
+```
+In order to use that virtual environment, you need to run the activation script for every new shell session.
+```sh
+source .venv/bin/activate
+```
+After this, you can continue.
+
+### Dependencies
+Standard dependencies are in `requirements.txt`.
 ```sh
 pip install -r requirements.txt
 ```
