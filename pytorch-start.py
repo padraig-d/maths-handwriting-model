@@ -1,3 +1,4 @@
+#%%
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -14,8 +15,8 @@ import numpy as np
 
 # from the colab, normalises the image and transforms it to a tensor
 transform = transforms.Compose(
-    [transforms.ToTensor(),
-     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+    [transforms.ToTensor()])
+    # transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
 trainset = torchvision.datasets.ImageFolder(root="./data", transform=transform)
 datatest = DataLoader(trainset, batch_size=64, shuffle=True)
@@ -25,7 +26,7 @@ train_features, train_labels = next(iter(datatest))
 print(f"Feature batch shape: {train_features.size()}")
 print(f"Labels batch shape: {train_labels.size()}")
 img = train_features[0]
-img = img.permute(*torch.arange(img.ndim - 1, -1, -1)) # this is necessary to transpose the size shape from (3, 28, 28) to (28, 28, 3)
+img = img.permute(1, -1, 0) # necessary to get the shape of the tensor from (28, 28, 3) to (3, 28, 28)
 label = train_labels[0]
 plt.imshow(img)
 plt.show()
@@ -35,3 +36,4 @@ print(f"Label: {label}")
 item = trainset[26900]
 print(item)
 
+#%%
