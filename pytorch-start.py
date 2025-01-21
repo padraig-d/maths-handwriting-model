@@ -15,8 +15,8 @@ import numpy as np
 
 # from the colab, normalises the image and transforms it to a tensor
 transform = transforms.Compose(
-    [transforms.ToTensor()])
-    # transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+    [transforms.ToTensor(),
+    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
 trainset = torchvision.datasets.ImageFolder(root="./data", transform=transform)
 datatest = DataLoader(trainset, batch_size=64, shuffle=True)
