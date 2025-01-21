@@ -20,7 +20,12 @@ TRANSFORM = transforms.Compose((
 
     # resize to the necessary size?
 
-    # transforms.RandomResizedCrop(), # find out how to use this
+    # data augmentation
+    # snap a smaller part of the image and expand it to the original size, discarding the rest
+    # the scale is the possible area that crop can have - 90% of the image to 100% of it
+    # TODO de-hardcode
+    transforms.RandomResizedCrop((28, 28), scale=(0.9, 1), antialias=True),
+
     # normalising images is done on photos of the real world; on handwriting this is not as necessary
     # transforms.Normalize((0.5,), (0.5,)),
 ))
