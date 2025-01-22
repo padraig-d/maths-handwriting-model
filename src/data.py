@@ -4,8 +4,11 @@ from torch.utils.data import random_split, Dataset, DataLoader
 from torchvision.transforms import v2 as transforms
 from torchvision import datasets
 
-# TODO add environment variables for these
+from multiprocessing import cpu_count
+
+# TODO add un-hardcode
 DATA_ROOT = "data/"
+LOADER_PARAMS = { "batch_size": 32, "num_workers": cpu_count() // 2 } # TODO consider pin_memory for GPU training
 TRAINING_PERCENT = 0.7
 
 # TODO finalise the transformations we'll be using
@@ -38,6 +41,7 @@ def init_dataset(path = DATA_ROOT):
 
 def split_dataset(dataset: Dataset = init_dataset()):
     train_data, test_data = random_split(dataset, [TRAINING_PERCENT, 1 - TRAINING_PERCENT])
+<<<<<<< HEAD
     return train_data, test_data
 
 def load_data(train_data : Dataset, test_data : Dataset):
@@ -51,3 +55,6 @@ def load_data(train_data : Dataset, test_data : Dataset):
 
 
 
+=======
+    return train_data, test_data
+>>>>>>> a4b891223d144eac7b0f26469f7ec7bc79fcce1e

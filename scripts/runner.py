@@ -6,16 +6,21 @@ import torch.optim as optim
 from src.data import split_dataset, load_data
 from torch import float32, no_grad, max, inference_mode
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
+from src.data import split_dataset, LOADER_PARAMS
+from torch import float32, max, inference_mode
+from torch.utils.data import DataLoader
 
 # loading in the data, requires initializing, splitting the data and then loading it in to PyTorch loaders
 
 train_set, test_set = split_dataset()
-testloader, trainloader = load_data(test_set, train_set)
+testloader = DataLoader(test_set, **LOADER_PARAMS, shuffle=False)
+trainloader = DataLoader(train_set, **LOADER_PARAMS, shuffle=True)
+
+print(f"batch size: {LOADER_PARAMS["batch_size"]}")
 
 # our neural network
 
 def run(net):
-
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
 
@@ -37,7 +42,7 @@ def run(net):
 
             # print statistics
             running_loss += loss.item()
-            if i % 2000 == 1999:    # print every 2000 mini-batches
+            if i % 100 == 0:
                 print('[%d, %5d] loss: %.3f' %
                     (epoch + 1, i + 1, running_loss / 2000))
                 running_loss = 0.0
