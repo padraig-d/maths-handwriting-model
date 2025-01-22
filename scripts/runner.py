@@ -3,7 +3,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
-from src.data import split_dataset, load_data
 from torch import float32, no_grad, max, inference_mode
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 from src.data import split_dataset, LOADER_PARAMS
@@ -66,6 +65,9 @@ def run(net):
             
             all_predicted.extend(predicted.cpu().numpy())
             all_labels.extend(labels.cpu().numpy())
+    
+    print('Accuracy of the network on test images: %d %%' % (
+    100 * correct / total))
 
 
     precision = precision_score(all_labels, all_predicted, average='weighted', zero_division=0)
