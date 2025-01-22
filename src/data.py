@@ -7,7 +7,7 @@ from torchvision import datasets
 from multiprocessing import cpu_count
 
 # TODO add un-hardcode
-DATA_ROOT = "data/"
+DATA_ROOT = "data/bhmsd"
 LOADER_PARAMS = { "batch_size": 32, "num_workers": cpu_count() // 2 } # TODO consider pin_memory for GPU training
 TRAINING_PERCENT = 0.7
 
