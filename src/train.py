@@ -19,5 +19,5 @@ def train(net: nn.Module, data_loader: DataLoader):
             optimiser.step()
 
             # print statistics
-            if i % 100 == 0:
-                print(f"[{epoch}, {i}] loss: {loss.item():.3f}")
+            # if i % 100 == 0:
+            print(f"[{epoch}, {i}] loss: {loss.item():.3f}")

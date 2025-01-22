@@ -1,5 +1,5 @@
 from src import LetNet
-from src import MyModel
+from torchvision import models
 from scripts.runner import run
 import torch
 import random
@@ -15,6 +15,7 @@ def set_seed(seed):
 set_seed(42)
 
 
-LetModel = LetNet.Net()
+LetModel = models.alexnet() # LetNet.Net()
+LetModel.classifier[6] = torch.nn.Linear(in_features=4096, out_features=18)
 
 run(LetModel)

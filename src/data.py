@@ -1,4 +1,4 @@
-from torch import float32
+from torch import float32, Tensor
 from torch.utils.data import random_split, Dataset, DataLoader
 
 from torchvision.transforms import v2 as transforms
@@ -10,6 +10,9 @@ from multiprocessing import cpu_count
 DATA_ROOT = "data/bhmsd"
 LOADER_PARAMS = { "batch_size": 32, "num_workers": cpu_count() // 2 } # TODO consider pin_memory for GPU training
 TRAINING_PERCENT = 0.7
+
+def expand(t: Tensor):
+    return t.expand(3, -1, -1)
 
 # TODO finalise the transformations we'll be using
 TRANSFORM = transforms.Compose((
@@ -31,6 +34,8 @@ TRANSFORM = transforms.Compose((
 
     # normalising images is done on photos of the real world; on handwriting this is not as necessary
     # transforms.Normalize((0.5,), (0.5,)),
+    transforms.Resize((224, 224)),
+    expand
 ))
 
 # changed to init_dataset as we will load the data using LoadDataset
