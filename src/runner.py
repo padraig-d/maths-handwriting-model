@@ -4,7 +4,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 from data import split_dataset, load_data
 from neural_net import Net
-from torch import float32, no_grad, max
+from torch import float32, no_grad, max, inference_mode
 from data import split_dataset, load_data
 
 
@@ -49,7 +49,7 @@ print('Finished Training')
 
 correct = 0
 total = 0
-with no_grad():
+with inference_mode():
     for data in testloader:
         images, labels = data
         outputs = net(images)
