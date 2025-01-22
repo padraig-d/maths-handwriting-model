@@ -4,7 +4,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 from src.data import split_dataset, load_data
 from src.neural_net import Net
-from srctorch import float32, no_grad, max, inference_mode
+from torch import float32, no_grad, max, inference_mode
 
 # loading in the data, requires initializing, splitting the data and then loading it in to PyTorch loaders
 

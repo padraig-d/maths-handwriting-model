@@ -5,7 +5,7 @@ from torchvision.transforms import v2 as transforms
 from torchvision import datasets
 
 # TODO add environment variables for these
-DATA_ROOT = "../data/"
+DATA_ROOT = "data/"
 TRAINING_PERCENT = 0.7
 
 # TODO finalise the transformations we'll be using
