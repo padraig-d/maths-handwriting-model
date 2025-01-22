@@ -2,6 +2,7 @@ from torch import nn, inference_mode
 from torch import max as torch_max
 from torch.utils.data import DataLoader
 
+
 def test(net: nn.Module, data_loader: DataLoader):
     correct = 0
     total = 0
