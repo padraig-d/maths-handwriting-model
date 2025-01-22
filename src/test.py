@@ -1,11 +1,7 @@
 from torch import nn, inference_mode, Tensor
 from torch import max as torch_max
 from torch.utils.data import DataLoader
-
-<<<<<<< HEAD
-=======
 import numpy as np
->>>>>>> f14668bf48de5ffbc89187ed741b647a1fd16797
 
 def test(net: nn.Module, data_loader: DataLoader):
     max_size = len(data_loader) * (data_loader.batch_size) # the max number of entries we'll need to store
