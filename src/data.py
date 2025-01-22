@@ -41,20 +41,4 @@ def init_dataset(path = DATA_ROOT):
 
 def split_dataset(dataset: Dataset = init_dataset()):
     train_data, test_data = random_split(dataset, [TRAINING_PERCENT, 1 - TRAINING_PERCENT])
-<<<<<<< HEAD
     return train_data, test_data
-
-def load_data(train_data : Dataset, test_data : Dataset):
-    trainloader = DataLoader(train_data, batch_size=32,
-                            shuffle=True, num_workers=2)
-    testloader = DataLoader(test_data, batch_size=32,
-                            shuffle=True, num_workers=2)
-    return trainloader, testloader
-
-
-
-
-
-=======
-    return train_data, test_data
->>>>>>> a4b891223d144eac7b0f26469f7ec7bc79fcce1e
