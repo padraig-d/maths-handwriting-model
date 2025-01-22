@@ -1,0 +1,22 @@
+number of images per class:
+0:1704
+1:1688
+2:1689
+3:1705
+4:1697
+5:1697
+6:1707
+7:1708
+8:1694
+9:1705
+
+classes are balanced
+
+
+WHAT I HAVE DONE:
+-sorted the files into the same dir system as the original data
+-renamed the files so they follow the same naming convention as the orginal data
+-downsided all of them using pillow with the 'NEAREST' downsampleing method
+added the extra classes in that were in the orignal dataset but not in this one, this allows you to simply run the og model
+on this data and it will be able to classify them without changing our model code
+-removed any undded data and extras that were included in the raw data for this dataset
