@@ -1,6 +1,6 @@
 # progrma to run matplotlib to check dataset
 import matplotlib.pyplot as plt
-from data import split_dataset, load_data
+from src.data import split_dataset, load_data
 
 # loading in the data, requires initializing, splitting the data and then loading it in to PyTorch loaders
 
