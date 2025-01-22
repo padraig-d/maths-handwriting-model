@@ -1,11 +1,11 @@
 # progrma to run matplotlib to check dataset
 import matplotlib.pyplot as plt
-from src.data import split_dataset, load_data
+from ..src import data
 
 # loading in the data, requires initializing, splitting the data and then loading it in to PyTorch loaders
 
-train_data, test_data = split_dataset()
-trainloader, testloader = load_data(train_data, test_data)
+train_data, test_data = data.split_dataset()
+trainloader, testloader = data.load_data(train_data, test_data)
 
 train_features, train_labels = next(iter(trainloader))
 print(f"Feature batch shape: {train_features.size()}")
