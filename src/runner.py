@@ -7,8 +7,13 @@ from neural_net import Net
 from torch import float32, no_grad, max
 from data import split_dataset, load_data
 
+
+# loading in the data, requires initializing, splitting the data and then loading it in to PyTorch loaders
+
 test_set, train_set = split_dataset()
 testloader, trainloader = load_data(test_set, train_set)
+
+# our neural network
 
 net = Net()
 
