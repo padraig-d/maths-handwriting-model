@@ -1,4 +1,7 @@
 # ignore all hidden files
 !.git*
 .*
+
+# PyTorch stuff
+__pycache__/
 TorchProject
