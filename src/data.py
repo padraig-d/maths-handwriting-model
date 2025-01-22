@@ -8,7 +8,7 @@ from multiprocessing import cpu_count
 
 # TODO add un-hardcode
 DATA_ROOT = "data/"
-LOADER_PARAMS = { "batch_size": 4, "num_workers": cpu_count() // 2 } # TODO consider pin_memory for GPU training
+LOADER_PARAMS = { "batch_size": 32, "num_workers": cpu_count() // 2 } # TODO consider pin_memory for GPU training
 TRAINING_PERCENT = 0.7
 
 # TODO finalise the transformations we'll be using
