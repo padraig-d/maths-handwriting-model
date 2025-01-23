@@ -1,8 +1,5 @@
 # code to run the code
-import torch
-import torch.nn.functional as F
 from src.data import split_dataset
-from torch import max, inference_mode
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 from src.data import split_dataset, LOADER_PARAMS
 from src.train import train
@@ -19,8 +16,8 @@ test_loader = DataLoader(test_set, **LOADER_PARAMS, shuffle=False)
 
 print(f"batch size: {LOADER_PARAMS["batch_size"]}")
 
-def run(net):
-    train(net, train_loader)
+def run(net, epochs):
+    train(net, train_loader, epochs)
     print('Finished Training')
     labels, predictions = test(net, test_loader)
 

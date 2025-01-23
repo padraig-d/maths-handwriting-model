@@ -8,7 +8,7 @@ from multiprocessing import cpu_count
 
 # TODO add un-hardcode
 DATA_ROOT = "data/bhmsd"
-LOADER_PARAMS = { "batch_size": 16, "num_workers": cpu_count() // 2 } # TODO consider pin_memory for GPU training
+LOADER_PARAMS = { "batch_size": 2, "num_workers": cpu_count() // 2 } # TODO consider pin_memory for GPU training
 TRAINING_PERCENT = 0.7
 
 # TODO finalise the transformations we'll be using
@@ -30,7 +30,7 @@ TRANSFORM = transforms.Compose((
     transforms.RandomResizedCrop((28, 28), scale=(0.9, 1), antialias=True),
 
     # normalising images is done on photos of the real world; on handwriting this is not as necessary
-    # transforms.Normalize((0.5,), (0.5,)),
+    transforms.Normalize((0.5,), (0.5,)),
 ))
 
 # changed to init_dataset as we will load the data using LoadDataset

@@ -24,3 +24,9 @@ PyTorch is not multiplatform, so you'll need to select the correct version for y
 ## Data
 Dataset consists of 27,000 images of the symbols `0,1,2,3,4,5,6,7,8,9,*,-,+,/,w,x,y,z` (1,500 each).
 It has yet to be sorted correctly.
+
+## USAGE
+
+Run main.py to train the model, it will be saved into /trained_model.
+
+To run various tests on it (such as testing on images in /testing_images), run testing.py

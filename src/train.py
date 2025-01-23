@@ -1,12 +1,14 @@
 from torch import nn, optim
+from scripts.save import saving
 from torch.utils.data import DataLoader
 
-EPOCH = 10
 
-def train(net: nn.Module, data_loader: DataLoader):
+def train(net: nn.Module, data_loader: DataLoader, epochs):
     criterion = nn.CrossEntropyLoss()
     optimiser = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
-    for epoch in range(10):  # loop over the dataset multiple times
+    
+    for epoch in range(epochs):  # loop over the dataset multiple times
+        
         for i, data in enumerate(data_loader, 0):
             # get the inputs
             inputs, labels = data
@@ -23,3 +25,7 @@ def train(net: nn.Module, data_loader: DataLoader):
             # print statistics
             if i % 100 == 0:
                 print(f"[{epoch}, {i}] loss: {loss.item():.3f}")
+    
+    saving(net.state_dict())
+            
+
